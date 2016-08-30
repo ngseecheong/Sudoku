@@ -4,15 +4,27 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{color}
 \author{800107 - Daniel Ng See Cheong\\
 		839521 - Uzair Moolla}
-\title{Sudoku}
-\usepackage{tabularx}
+\title{
+	AAA Project\\
+	\large Solving Sudoku using the backtracking algorithm
+}
+
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{\##1\#}}}
 
 \begin{document}
 \maketitle
 
 \section{Introduction}
+Sudoku is a numerical puzzle game. The idea is to solve an $n\times n$ grid filled with numbers, this grid usually consists of square blocks with 3 rows and 3 columns. These individual blocks are then arranged in a similar manner again, with 3 blocks along rows and 3 along columns, producing a $9 \times 9$ matrix. We need to fill the blocks with one of these numbers ${1,2,3,4,5,6,7,8,9}$. The rules for filling these blocks are as follows:
+\begin{itemize}
+\item[•] Within each block we can only have single occurrence of a number.
+\item[•] Along a each row we can only have single occurrence of a number.
+\item[•] Along a each column we can only have a single occurrence of a number.
+\end{itemize}
+\todo{Fill in facts}
 
 \section{Aims}
 

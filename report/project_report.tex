@@ -12,24 +12,47 @@
 	\large Solving Sudoku using the backtracking algorithm
 }
 
+\graphicspath{ {images/} }
+
 \newcommand{\todo}[1]{\textcolor{red}{\textbf{\##1\#}}}
 
 \begin{document}
 \maketitle
 
 \section{Introduction}
-Sudoku is a numerical based logic puzzle game. The idea is to solve an $n\times n$ grid filled with numbers, this grid usually consists of square blocks with 3 rows and 3 columns. These individual blocks are then arranged in a similar manner again, with 3 blocks along rows and 3 along columns, producing a $9 \times 9$ matrix.  We need to fill the blocks with one of these numbers ${1,2,3,4,5,6,7,8,9}$. The rules for filling these blocks are as follows:
+Sudoku is a numerical based logic puzzle game. The idea is to solve an $n\times n$ grid filled with numbers. The most commonly known grid usually consists of square blocks with 3 rows and 3 columns. These individual blocks are then arranged in a similar manner again, with 3 blocks along rows and 3 along columns, producing a $9 \times 9$ matrix. An example of this described matrix can be seen in Figure  \ref{fig:Blank_Sudoku_Board}. We need to fill the blocks with one of these numbers ${1,2,3,4,5,6,7,8,9}$. The rules for filling these blocks are as follows:
 \begin{itemize}
 \item[•] Within each $3 \times 3 $ block we can only have single occurrence of a number.
 \item[•] Along each $9$ block row we can only have a single occurrence of a number.
 \item[•] Along each $9$ block column we can only have a single occurrence of a number.
 \end{itemize}
 
+\noindent
+An example of a Sudoku Puzzle completed using the rules stated above can be seen in Figure \ref{fig:Complete_Sudoku_Board}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Blank_Sudoku_Board}
+\caption{Sample of a $9\times9$ Blank Sudoku Board}
+\label{fig:Blank_Sudoku_Board}
+\end{figure}
+%-------------------------------------------------------%
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Complete_Sudoku_Board}
+\caption{Sample of a $9\times9$ Completed Sudoku Board}
+\label{fig:Complete_Sudoku_Board}
+\end{figure}
+
 \todo{Fill in facts}
 
 \section{Aims}
 
-We are going to use the backtracking algorithm to solve $9\times9$ sudoku puzzles. This will allow us to attempt to solve these sudoku puzzles in as little time as possible. We aim to find the best, average and worst case complexities of the algorithm through empirical analysis.
+We are going to use the backtracking algorithm to solve sudoku puzzles of size $n\times n$. We will attempt to solve these sudoku
+puzzles in as little time as possible. Once we have the algorithm working correctly we will perform both empirical as well as
+theoretical analysis on it. We aim to find the best, average and worst case complexities of the algorithm being used.
+\\
+\todo{add some stuff}
 
 \section{Summary of Theory}
 

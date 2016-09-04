@@ -21,7 +21,7 @@ build:
   #     - "*.o"
 
 # run tests using the binary built before
-#test:
-#  stage: test
-#  script:
-#    - ./mybinary
+test:
+  stage: test
+  script:
+    - ./mybinary

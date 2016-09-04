@@ -22,6 +22,6 @@ build:
 
 # run tests using the binary built before
 #test:
-  stage: test
-  script:
-    - ./mybinary
+#  stage: test
+#  script:
+#    - ./mybinary

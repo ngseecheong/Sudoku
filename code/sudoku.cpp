@@ -176,7 +176,7 @@ int main(int argc,char** argv){
     }
   }
   
-  Sudoku gametest(20,3,3);
+  Sudoku gametest(temp,3,3);
 
   gametest.print();
   cout<<"====\n";

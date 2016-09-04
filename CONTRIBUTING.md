@@ -1,0 +1,1 @@
+To skip CI use [ci skip] or [skip ci]

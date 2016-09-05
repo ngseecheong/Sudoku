@@ -11,7 +11,7 @@ build_program:
     - g++ sudoku.cpp -o sudoku.o
   artifacts:
     paths:
-      - sudoku.o
+      - code/sudoku.o
   # depending on your build setup it's most likely a good idea to cache outputs to reduce the build time
   # cache:
   #   paths:
@@ -26,7 +26,7 @@ compile_pdf:
     - latexmk -pdf project_report.tex
   artifacts:
     paths:
-      - project_report.pdf
+      - report/project_report.pdf
 
 # run tests using the binary built before
 # Use basic ubuntu core to run and save to output.txt
@@ -34,7 +34,8 @@ test_program:
   image: tianon/ubuntu-core
   stage: test
   script:
+    - cd code
     - ./sudoku.o > output.txt
   artifacts:
     paths:
-      - output.txt
+      - code/output.txt

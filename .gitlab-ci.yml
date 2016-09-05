@@ -8,7 +8,7 @@ build_program:
   stage: build
   script:
     - cd code
-    - g++ sudoku.cpp -o sudoku.o
+    - make
   artifacts:
     paths:
       - code/sudoku.o
@@ -17,13 +17,14 @@ build_program:
   #   paths:
   #     - "*.o"
 
-compile_pdf:
+build_pdf:
   image: tianon/latex
   stage: build
   script:
     - cd report
     - rm -f project_report.pdf
     - latexmk -pdf project_report.tex
+    - latexmk -pdf project_report.tex #Build twice for references
   artifacts:
     paths:
       - report/project_report.pdf

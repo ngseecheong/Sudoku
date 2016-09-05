@@ -25,3 +25,11 @@ test:
   stage: test
   script:
     - ./mybinary
+    
+compile_pdf:
+  image: tianon/latex
+  script:
+    - latexmk -pdf report/project_report.tex
+  artifacts:
+    paths:
+      - project_report.pdf

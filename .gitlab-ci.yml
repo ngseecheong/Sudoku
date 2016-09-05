@@ -28,8 +28,10 @@ test:
     
 compile_pdf:
   image: tianon/latex
+  stage: build
   script:
-    - latexmk -pdf report/project_report.tex
+    - cd report
+    - latexmk -pdf project_report.tex
   artifacts:
     paths:
-      - project_report.pdf
+      - project_report_build.pdf

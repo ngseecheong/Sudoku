@@ -5,6 +5,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{color}
+\usepackage[margin=1in]{geometry}
 \author{800107 - Daniel Ng See Cheong\\
 		839521 - Uzair Moolla}
 \title{
@@ -20,11 +21,11 @@
 \maketitle
 
 \section{Introduction}
-Sudoku is a numerical based logic puzzle game. The idea is to solve an $n\times n$ grid filled with numbers. The most commonly known grid usually consists of square blocks with 3 rows and 3 columns. These individual blocks are then arranged in a similar manner again, with 3 blocks along rows and 3 along columns, producing a $9 \times 9$ matrix. An example of this described matrix can be seen in Figure  \ref{fig:Blank_Sudoku_Board}. We need to fill the blocks with one of these numbers ${1,2,3,4,5,6,7,8,9}$. The rules for filling these blocks are as follows:
+Sudoku is a numerical based logic puzzle game. The idea is to fill in an $n\times n$ grid with numbers in a specific manner. The most commonly known grid usually consists of square blocks with 3 rows and 3 columns. These individual blocks are then arranged in a similar manner again, with 3 blocks along rows and 3 along columns, producing a $9 \times 9$ matrix. An example of this described matrix can be seen in Figure  \ref{fig:Blank_Sudoku_Board}. We need to fill each of the blocks with one of these numbers ${1,2,3,4,5,6,7,8,9}$. The rules for filling these blocks are as follows:
 \begin{itemize}
-\item[•] Within each $3 \times 3 $ block we can only have single occurrence of a number.
-\item[•] Along each $9$ block row we can only have a single occurrence of a number.
-\item[•] Along each $9$ block column we can only have a single occurrence of a number.
+\item[•] Within each $3 \times 3 $ block we can only have single occurrence of each number.
+\item[•] Along each $9$ block row we can only have a single occurrence of each number.
+\item[•] Along each $9$ block column we can only have a single occurrence of each number.
 \end{itemize}
 
 \noindent
@@ -45,10 +46,12 @@ An example of a Sudoku Puzzle completed using the rules stated above can be seen
 \end{figure}
 %------------------------------------------------------%
 
+\noindent
 Solving sudoku puzzles are a fun exercise for many. However we would like to find a suitable algorithm which can be used to solve sudoku puzzles correctly as well as efficiently. There are various possible methods which can be used to solve sudoku puzzles. We will be focussing on the \emph{Backtracking Algorithm} in our experiments.
-
+\\
 \todo{Fill in facts}
 
+\newpage
 \section{Aims}
 
 We are going to use the backtracking algorithm to solve sudoku puzzles of size $n\times n$. We will attempt to solve these sudoku

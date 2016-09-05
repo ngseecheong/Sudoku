@@ -32,7 +32,7 @@ build_pdf:
 # run tests using the binary built before
 # Use basic ubuntu core to run and save to output.txt
 test_program:
-  image: tianon/ubuntu-core
+  image: gcc
   stage: test
   script:
     - cd code

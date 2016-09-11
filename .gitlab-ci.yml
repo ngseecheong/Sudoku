@@ -13,9 +13,9 @@ build_program:
     paths:
       - code/sudoku.o
   # depending on your build setup it's most likely a good idea to cache outputs to reduce the build time
-  # cache:
-  #   paths:
-  #     - "*.o"
+  cache:
+    paths:
+      - "code/*.o"
 
 build_pdf:
   image: tianon/latex
@@ -36,7 +36,4 @@ test_program:
   stage: test
   script:
     - cd code
-    - ./sudoku.o > output.txt
-  artifacts:
-    paths:
-      - code/output.txt
+    - make test

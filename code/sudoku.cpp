@@ -41,7 +41,10 @@ Sudoku::Sudoku(int** board,int blocksize){
 void Sudoku::print(){
   for(int i=0;i<length;i++){
     for(int j=0;j<length;j++){
-      cout<<board[i][j]<<" ";
+      if(j)
+      	cout<<' '<<board[i][j];
+      else
+	cout<<board[i][j];
     }
     cout<<"\n";
   }

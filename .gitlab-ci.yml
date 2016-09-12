@@ -30,10 +30,13 @@ build_pdf:
       - report/project_report.pdf
 
 # run tests using the binary built before
-# Use basic ubuntu core to run and save to output.txt
+# Use basic ubuntu core to run and save to test_output.txt
 test_program:
   image: gcc
   stage: test
   script:
     - cd code
     - make test
+  artifacts:
+    paths:
+      - code/test_output.txt

@@ -9,4 +9,4 @@ clean:
 
 test:
 	chmod u+x ./test.sh
-	./test.sh
+	./test.sh > test_output.txt

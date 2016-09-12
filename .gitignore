@@ -32,3 +32,6 @@
 *.aux
 *.log
 *.synctex.gz
+
+#Gen files
+test_output.txt

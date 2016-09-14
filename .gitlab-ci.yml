@@ -22,7 +22,6 @@ build_program:
     paths:
       - "code/*.o"
       - "code/*.gcno"
-    group: sharedcache
 
 build_pdf:
   image: tianon/latex
@@ -50,14 +49,12 @@ test_program:
   cache:
     paths:
       - "code/*.gcda"
-    group: sharedcache
 test_coverage:
   image: gcc
   stage: coverage
   cache:
     paths:
       - "code/*"
-    group: sharedcache
   script:
     - apt-get update
     - apt-get install python-pip -y

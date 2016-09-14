@@ -54,4 +54,4 @@ test_coverage:
     - apt-get install python-pip -y
     - pip install gcovr
     - cd code
-    - gcovr -r
+    - gcovr -r .

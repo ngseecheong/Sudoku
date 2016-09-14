@@ -1,11 +1,12 @@
 all: main_sudoku
 
 main_sudoku:sudoku.cpp main.cpp
-	g++ -fprofile-arcs -ftest-coverage -fPIC -O0 main.cpp sudoku.cpp -o sudoku.o -std=c++11
+	g++ -fprofile-arcs -ftest-coverage -fPIC -O0 main.cpp sudoku.cpp -o sudoku -std=c++11
 
 .PHONY: clean test
 clean:
-	rm *.o
+	rm -f *.o
+	rm -f sudoku
 
 test:
 	chmod u+x ./test.sh

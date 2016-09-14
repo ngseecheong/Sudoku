@@ -3,7 +3,7 @@
 #include<stdlib.h>
 #include "sudoku.h"
 using namespace std;
- 
+/* Random board generator 
 Sudoku::Sudoku(int num,int blocksize){
   this->blocksize=blocksize;
   this->length=blocksize*blocksize;
@@ -26,6 +26,7 @@ Sudoku::Sudoku(int num,int blocksize){
     }
   }
 }
+*/
 
 Sudoku::Sudoku(int** board,int blocksize){
   this->board=board;

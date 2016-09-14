@@ -1,7 +1,7 @@
 all: main_sudoku
 
 main_sudoku:sudoku.cpp main.cpp
-	g++ main.cpp sudoku.cpp -o sudoku.o -std=c++11
+	g++ -fprofile-arcs -ftest-coverage -fPIC -O0 main.cpp sudoku.cpp -o sudoku.o -std=c++11
 
 .PHONY: clean test
 clean:

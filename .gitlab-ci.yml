@@ -21,6 +21,8 @@ build_program:
   cache:
     paths:
       - "code/*.o"
+      - "code/*.gcno"
+      - "code/*.gcda"
 
 build_pdf:
   image: tianon/latex
@@ -45,6 +47,11 @@ test_program:
   artifacts:
     paths:
       - code/test_output.txt
+  cache:
+    paths:
+      - "code/*.o"
+      - "code/*.gcno"
+      - "code/*.gcda"
       
 test_coverage:
   image: gcc

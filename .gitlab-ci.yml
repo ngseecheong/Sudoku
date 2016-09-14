@@ -15,14 +15,10 @@ build_program:
     - cd code
     - make
   artifacts:
+    untracked: true
     paths:
-      - code/sudoku.o
-  # depending on your build setup it's most likely a good idea to cache outputs to reduce the build time
-  cache:
-    paths:
-      - "code/*.o"
-      - "code/*.gcno"
-
+      - code/*
+      
 build_pdf:
   image: tianon/latex
   stage: build
@@ -44,20 +40,20 @@ test_program:
     - cd code
     - make test
   artifacts:
+    untracked: true
     paths:
-      - code/test_output.txt
-  cache:
-    paths:
-      - "code/*.gcda"
+      - code/*
+      
 test_coverage:
   image: gcc
   stage: coverage
-  cache:
-    paths:
-      - "code/*"
   script:
     - apt-get update
     - apt-get install python-pip -y
     - pip install gcovr
     - cd code
     - gcovr -r .
+  artifacts:
+    untracked: true
+    paths:
+      - code/*

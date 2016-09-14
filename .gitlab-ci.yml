@@ -3,6 +3,11 @@
 # can use verions as well, like gcc:5.2
 # see https://hub.docker.com/_/gcc/
 
+stages:
+  - build
+  - test
+  - coverage
+
 build_program:
   image: gcc
   stage: build
@@ -40,3 +45,13 @@ test_program:
   artifacts:
     paths:
       - code/test_output.txt
+      
+test_coverage:
+  image: gcc
+  stage: coverage
+  script:
+    - apt-get update
+    - apt-get install python-pip -y
+    - pip install gcovr
+    - cd code
+    - gcovr -r

@@ -66,7 +66,7 @@ bool Sudoku::validMove(int num,int row,int col){
     if(num==board[i][col])
       return false;
   }
-  
+/*  
   if(diagonals){
     if(row==col){
       for(int i=0;i<length;i++){
@@ -81,7 +81,7 @@ bool Sudoku::validMove(int num,int row,int col){
       }
     }
   }
-  
+*/
   //Check in block
   //Calculate block positions
   int row_min=(row/blocksize)*blocksize; //Integer division does truncation/floor

@@ -3,29 +3,6 @@
 #include<stdlib.h>
 #include "sudoku.h"
 using namespace std;
-//Random board generator 
-Sudoku::Sudoku(int num,int blocksize){
-  this->blocksize=blocksize;
-  this->length=blocksize*blocksize;
-  
-  srand(time(NULL)); // use current time as seed for random generator
-  board=new int*[length];
-  for(int i=0;i<length;i++){
-    board[i]=new int[length];
-  }
-  
-  int count=0;
-  while(count<=num){
-    int row = rand() % (length);
-    int col = rand() % (length);
-    int n = rand() % (length+1);
-    
-    if(validMove(n,row,col)){
-      board[row][col]=n;
-      count++;
-    }
-  }
-}
 
 Sudoku::Sudoku(int** board,int blocksize){
   this->board=board;
@@ -51,8 +28,6 @@ void Sudoku::print(){
 }
 
 bool Sudoku::validMove(int num,int row,int col){
-  if(row<0 || col<0 || row>=length || col>=length)
-    return false;
   
   //Check across row
   for(int i=0;i<length;i++){
@@ -65,22 +40,7 @@ bool Sudoku::validMove(int num,int row,int col){
     if(num==board[i][col])
       return false;
   }
-
-  if(diagonals){
-    if(row==col){
-      for(int i=0;i<length;i++){
-	if(num==board[i][i])
-	  return false;
-      }
-    }
-    if((row+col)==(length-1)){
-      for(int i=0;i<length;i++){
-	if(num==board[i][length-1-i])
-	  return false;
-      }
-    }
-  }
-
+  
   //Check in block
   //Calculate block positions
   int row_min=(row/blocksize)*blocksize; //Integer division does truncation/floor
@@ -138,5 +98,3 @@ int* Sudoku::openPosition(){
   }
   return NULL;
 }
-
-

@@ -3,7 +3,7 @@
 #include<stdlib.h>
 #include "sudoku.h"
 using namespace std;
-/* Random board generator 
+//Random board generator 
 Sudoku::Sudoku(int num,int blocksize){
   this->blocksize=blocksize;
   this->length=blocksize*blocksize;
@@ -26,7 +26,6 @@ Sudoku::Sudoku(int num,int blocksize){
     }
   }
 }
-*/
 
 Sudoku::Sudoku(int** board,int blocksize){
   this->board=board;
@@ -66,7 +65,7 @@ bool Sudoku::validMove(int num,int row,int col){
     if(num==board[i][col])
       return false;
   }
-/*  
+
   if(diagonals){
     if(row==col){
       for(int i=0;i<length;i++){
@@ -81,7 +80,7 @@ bool Sudoku::validMove(int num,int row,int col){
       }
     }
   }
-*/
+
   //Check in block
   //Calculate block positions
   int row_min=(row/blocksize)*blocksize; //Integer division does truncation/floor

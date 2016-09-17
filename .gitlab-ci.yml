@@ -26,10 +26,13 @@ build_pdf:
     - cd report
     - rm -f project_report.pdf
     - latexmk -pdf project_report.tex
-    - latexmk -pdf project_report.tex #Build twice for references
   artifacts:
     paths:
       - report/project_report.pdf
+  cache:
+    untracked: true
+    paths:
+      - report/*
 
 # run tests using the binary built before
 # Use basic ubuntu core to run and save to test_output.txt
@@ -52,7 +55,7 @@ test_coverage:
     - apt-get install python-pip -y
     - pip install gcovr
     - cd code
-    - gcovr -r .
+    - make coverage
   artifacts:
     untracked: true
     paths:

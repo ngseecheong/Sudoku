@@ -3,6 +3,11 @@
 *.lo
 *.o
 *.obj
+sudoku
+
+#Code coverage
+*.gcno
+*.gcda
 
 # Precompiled Headers
 *.gch

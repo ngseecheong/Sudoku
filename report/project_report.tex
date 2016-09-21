@@ -56,15 +56,26 @@ Solving sudoku puzzles are a fun exercise for many. However we would like to fin
 \newpage
 \section{Aims}
 
-We are going to use the backtracking algorithm to solve sudoku puzzles of size $n\times n$. We will attempt to solve these sudoku
-puzzles in as little time as possible. Once we have the algorithm working correctly we will perform both empirical as well as
-theoretical analysis on it. We aim to find the best, average and worst case complexities of the algorithm being used.
+We are going to use the backtracking algorithm to solve sudoku puzzles of size $n\times n$. We will attempt to solve these sudoku puzzles accurately and in as little time as possible. Once we have the algorithm working correctly we will perform both empirical as well as theoretical analysis on it. We aim to find the best, average and worst case complexities of the algorithm being used. These results will be obtained through both methods of analyses (empirical as well as theoretical) and make correlations between the results obtained.
+
+We will create a list or database of unsolved puzzles and another with their corresponding solutions. These lists will be used for all analysis done as well as ensuring that the solutions found to each of the puzzles are correct. 
 \\
 \todo{add some stuff}
 
 \section{Summary of Theory}
 
+\subsection{Backtracking Algorithm}
+
+In general backtracking algorithms are mainly used to solve computational problems. Simply put, the backtracking algorithm starts with the selection of one possible move out of all available moves and will try solving the problem with the selected move. If the selected move allows us to find a correct final solution to the problem, the solution is given as an output (it is printed out). However, if the selected move does not lead to a correct final solution to the problem, we backtrack. The backtracking is done to the point where the move was selected and choose an alternative one at this point. This process is repeated until the correct solution to the problem is found. If none of the available moves work in finding the correct solution to the problem it is sufficient to say there is no solution to the problem.
+\\
+Recursion is the most appropriate method to implement this type of algorithm.
+\\
+\todo{add more stuff}
+
 \section{Pseudo code}
+
+\todo{Type out algorithm pseudo code}
+
 \begin{algorithm}
 \caption{Backtracking}
 \begin{algorithmic}
@@ -81,9 +92,15 @@ theoretical analysis on it. We aim to find the best, average and worst case comp
 
 \section{Experimental Methodology}
 
+\todo{Define methods of experimentation}
+
 \section{Presentation of results}
 
+\todo{Show results of empirical analysis}
+
 \section{Interpretation of results}
+
+\todo{interpret results from empirical analysis}
 
 \section{Conclusion}
 

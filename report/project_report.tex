@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{color}
+\usepackage{float}
 \usepackage[margin=1in]{geometry}
 \author{800107 - Daniel Ng See Cheong\\
 		839521 - Uzair Moolla}
@@ -33,14 +34,14 @@ Sudoku is a numerical based logic puzzle game. The idea is to fill in an $n\time
 \noindent
 An example of a Sudoku Puzzle completed using the rules stated above can be seen in Figure \ref{fig:Complete_Sudoku_Board}.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Blank_Sudoku_Board}
 \caption{Sample of a $9\times9$ Blank Sudoku Board}
 \label{fig:Blank_Sudoku_Board}
 \end{figure}
 %-------------------------------------------------------%
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Complete_Sudoku_Board}
 \caption{Sample of a $9\times9$ Completed Sudoku Board}
@@ -56,9 +57,9 @@ Solving sudoku puzzles are a fun exercise for many. However we would like to fin
 \newpage
 \section{Aims}
 
-We are going to use the backtracking algorithm to solve sudoku puzzles of size $n\times n$. We will attempt to solve these sudoku puzzles accurately and in as little time as possible. Once we have the algorithm working correctly we will perform both empirical as well as theoretical analysis on it. We aim to find the best, average and worst case complexities of the algorithm being used. These results will be obtained through both methods of analyses (empirical as well as theoretical) and make correlations between the results obtained.
-
-We will create a list or database of unsolved puzzles and another with their corresponding solutions. These lists will be used for all analysis done as well as ensuring that the solutions found to each of the puzzles are correct. 
+We are going to use the backtracking algorithm to solve sudoku puzzles of size $n\times n$. We will attempt to solve these sudoku puzzles accurately and in as little time as possible. Once we have the algorithm working correctly we will perform both empirical as well as theoretical analysis on it. We aim to find the best, average and worst case complexities of the algorithm being used. These results will be obtained through both methods of analyses (empirical as well as theoretical) and correlations between the results will be obtained.
+\\
+We will create a database of unsolved puzzles and another with their corresponding solutions. These lists will be used for all analysis done as well as ensuring that the solutions found to each of the puzzles are correct. 
 \\
 \todo{add some stuff}
 
@@ -66,7 +67,7 @@ We will create a list or database of unsolved puzzles and another with their cor
 
 \subsection{Backtracking Algorithm}
 
-In general backtracking algorithms are mainly used to solve computational problems. Simply put, the backtracking algorithm starts with the selection of one possible move out of all available moves and will try solving the problem with the selected move. If the selected move allows us to find a correct final solution to the problem, the solution is given as an output (it is printed out). However, if the selected move does not lead to a correct final solution to the problem, we backtrack. The backtracking is done to the point where the move was selected and choose an alternative one at this point. This process is repeated until the correct solution to the problem is found. If none of the available moves work in finding the correct solution to the problem it is sufficient to say there is no solution to the problem.
+In general backtracking algorithms are mainly used to solve NP-complete computational problems. Simply put, the backtracking algorithm starts with the selection of one possible move out of all available moves and will try solving the problem with the selected move. If the selected move allows us to find a correct final solution to the problem, the solution is given as an output (it is printed out). However, if the selected move does not lead to a correct final solution to the problem, we backtrack. The backtracking is done to the point where the move was selected and choose an alternative one at this point. This process is repeated until the correct solution to the problem is found. If none of the available moves work in finding the correct solution to the problem it is sufficient to say there is no solution to the problem.
 \\
 Recursion is the most appropriate method to implement this type of algorithm.
 \\
@@ -74,21 +75,118 @@ Recursion is the most appropriate method to implement this type of algorithm.
 
 \section{Pseudo code}
 
-\todo{Type out algorithm pseudo code}
-
-\begin{algorithm}
-\caption{Backtracking}
+\begin{algorithm}[H]
+\caption{Check if  a Move is Valid}
 \begin{algorithmic}
-\Function{name}{params}
-  \If{\textit{empty}} 
-  \State \todo{fill in}
-  \Else
-  \State continue
-  \EndIf
-  \State \Return something
+
+\Function{validMove}{number , row, column}
+\\
+Where:
+\\
+\textit{number} is the number to be inserted
+\\
+\textit{row} is the row of current position
+\\
+\textit{column} is the column of the current position
+\\
+\textit{n} is the length of the square matrix representing the sudoku puzzle grid 
+\\
+\textit{board} is the $n \times n$ square matrix representing the sudoku puzzle grid 
+\\
+
+	\For{i from 1 to n}
+		\If{number is equal to board[row][i]}	
+			\State return false
+		\EndIf
+	\EndFor 	
+
+	\For{i from 1 to n}
+		\If{number is equal to board[i][col]}	
+			\State return false
+		\EndIf
+	\EndFor	
+	
+	\For{i from rowmin to rowmax }
+		\For{j from colmin to colmax}  	 
+			\If{num = board[i][j]}
+	   			\State return false
+	 		\EndIf       
+  		\EndFor
+  	\EndFor
+	\State return true
 \EndFunction
 \end{algorithmic}
 \end{algorithm}
+
+%---------------------------------------------------------------------
+
+\begin{algorithm}[H]
+\caption{Check if a Position is Open}
+\begin{algorithmic}
+\Function{openPosition}{}
+\\
+\textit{n} is the length of the square matrix representing the sudoku puzzle grid
+\\
+\textit{board} is the $n \times n$ square matrix representing the sudoku puzzle grid 
+\\ 
+\State initialise temp = array of length 2
+  
+	\For{i from 1 to n}
+		\For{j from 1 to n}  	 
+			\If{board[i][j] is empty}
+				\State temp[0] = i
+				\State temp[1] = j
+				\State return temp 
+			\EndIf       
+		\EndFor
+	\EndFor
+	\State  return NULL
+\EndFunction
+
+\end{algorithmic}
+\end{algorithm}
+
+%----------------------------------------------------------------
+
+\begin{algorithm}[H]
+\caption{Backtracking}
+\begin{algorithmic}
+\Function{solve}{}
+\\
+\textit{n} is the length of the square matrix representing the sudoku puzzle grid 
+\\
+\textit{board} is the $n \times n$ square matrix representing the sudoku puzzle grid
+\\
+\textit{openPosition(),validMove(i,row,col)} are the functions described above in Algorithm 1 and Algorithm 2 respectively.
+\\ 
+	\State initialise row,col; 
+	\State initialise temp = openPosition();	
+
+	\If{temp is not NULL} 
+		\State row=temp[0];
+		\State col=temp[1];
+  	\Else
+		\State return true
+	\EndIf  
+	
+	\For{i from 1 to n}
+		\If{validMove(i,row,col)}
+			\State board[row][col]=i;
+       		\If{solve()}
+       			\State return true;
+       		\EndIf       
+			\State set board[row][col] to be empty;
+		\EndIf
+	\EndFor
+	\State  return false;
+\EndFunction
+
+\end{algorithmic}
+\end{algorithm}
+
+\section{Theoretical Analysis }
+
+\todo{do the theoretical analysis}
 
 \section{Experimental Methodology}
 

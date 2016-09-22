@@ -29,10 +29,6 @@ build_pdf:
   artifacts:
     paths:
       - report/project_report.pdf
-  cache:
-    untracked: true
-    paths:
-      - report/*
 
 # run tests using the binary built before
 # Use basic ubuntu core to run and save to test_output.txt

@@ -87,7 +87,7 @@ Where:
 \\
 \textit{row} is the row of current position
 \\
-\textit{column} is the column of the current position
+\textit{col} is the column of the current position
 \\
 \textit{n} is the length of the square matrix representing the sudoku puzzle grid 
 \\
@@ -105,6 +105,16 @@ Where:
 			\State return false
 		\EndIf
 	\EndFor	
+	
+	\\
+	initialise rowmin to $ \dfrac{row}{blocksize} \times blocksize $
+	\\	
+	initialise colmin to $ \dfrac{column}{blocksize} \times blocksize $
+	\\		
+	initialise rowmax to rowmin + blocksize
+	\\		
+	initialise colmax to colmin + blocksize	
+	\\
 	
 	\For{i from rowmin to rowmax }
 		\For{j from colmin to colmax}  	 
@@ -129,7 +139,7 @@ Where:
 \\
 \textit{board} is the $n \times n$ square matrix representing the sudoku puzzle grid 
 \\ 
-\State initialise temp = array of length 2
+\State initialise temp to be an array of length 2
   
 	\For{i from 1 to n}
 		\For{j from 1 to n}  	 
@@ -159,20 +169,20 @@ Where:
 \\
 \textit{openPosition(),validMove(i,row,col)} are the functions described above in Algorithm 1 and Algorithm 2 respectively.
 \\ 
-	\State initialise row,col; 
-	\State initialise temp = openPosition();	
+	\State initialise row and col; 
+	\State initialise temp to openPosition();	
 
 	\If{temp is not NULL} 
-		\State row=temp[0];
-		\State col=temp[1];
+		\State row = temp[0];
+		\State col = temp[1];
   	\Else
 		\State return true
 	\EndIf  
 	
 	\For{i from 1 to n}
-		\If{validMove(i,row,col)}
+		\If{validMove(i,row,col) is true}
 			\State board[row][col]=i;
-       		\If{solve()}
+       		\If{solve() is true}
        			\State return true;
        		\EndIf       
 			\State set board[row][col] to be empty;

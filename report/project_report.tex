@@ -106,6 +106,7 @@ Where:
 		\EndIf
 	\EndFor	
 	
+	
 	\\
 	initialise rowmin to $ \dfrac{row}{blocksize} \times blocksize $
 	\\	
@@ -118,7 +119,7 @@ Where:
 	
 	\For{i from rowmin to rowmax }
 		\For{j from colmin to colmax}  	 
-			\If{num = board[i][j]}
+			\If{number = board[i][j]}
 	   			\State return false
 	 		\EndIf       
   		\EndFor
@@ -196,11 +197,30 @@ Where:
 
 \section{Theoretical Analysis }
 
-Theoretical analysis will be done for each of the algorithm pseudo codes listed above. However the first two algorithms are used in the Backtracking Algorithm (ie Solve calls validMove as well as openPosition) and thus the analysis of the Backtracking Algorithm will be done taking into account the analysis of Algorithms 1 and 2. This is okay as the aim of this experiment is to find the complexity of the Backtracking Algorithm being used to solve a sudoku puzzle.
+Theoretical analysis will be done for each of the algorithm pseudo codes listed above. However the first two algorithms are used in the Backtracking Algorithm (ie Solve calls validMove as well as openPosition) and thus the analysis of the Backtracking Algorithm will be done taking into account the analysis of Algorithms 1 and 2. We are able to do this as the aim of this experiment is to find the complexity of the Backtracking Algorithm being used to solve a sudoku puzzle.
 
 \subsection{Algorithm 1: validMove}
+ 
+We will use comparisons as the basic operation in this algorithm. There are two main segments in this algorithm, the first simply checks if  the number to be inserted in the puzzle already exists in the row or column of the block we want to insert it into.  
+
+\todo{Best case complexity}\\
+\todo{Average case complexity}\\
+\todo{Worst case complexity}\\
+ 
+The second segment checks if the number to be inserted exists in the bigger sub-block of the puzzle as mentioned in the rules of sudoku. This segment has a complexity of 
+
+\todo{Find out whats blocksize and complete complexity}\\
+\todo{Best case complexity}\\
+\todo{Average case complexity}\\
+\todo{Worst case complexity}\\
 
 \subsection{Algorithm 2: openPosition}
+
+We will use comparisons as the basic operation in this algorithm. This algorithm simply loops through all positions in the sudoku puzzle searching for an empty block wherein we can fill a number according to the rules of sudoku. For a sudoku puzzle of size $n \times n$ the worse case complexity of this algorithm is $n^{2}$. This occurs when the open position is the last block searched in the puzzle.
+
+The best case complexity will occur when the open position is the first block searched in the puzzle. This complexity is constant. 
+
+\todo{Average case complexity}
 
 \subsection{Algorithm 3: Solve}
 

@@ -1,16 +1,19 @@
 #!/bin/bash
+PREFIX="database/"
 
-DATALOC="database"
-
-for n in `seq 1 3`
+for str in easy hard nosolution;
 do
+    DATALOC=$PREFIX"$str"
+    for n in `seq 1 1`
+    do
 	output=$(./sudoku < $DATALOC/test$n)
 	solution=$(cat $DATALOC/solution$n)
 	if [ "$output" == "$solution" ]
 	then
-		echo Correct;
+		echo $str - $n  Correct;
 	else
-		echo Incorrect;
+		echo $str - $n Incorrect;
 		exit 1; #Error status
 	fi
+    done
 done

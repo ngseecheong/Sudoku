@@ -108,13 +108,16 @@ Where:
 	
 	
 	\\
+	\\
 	initialise rowmin to $ \dfrac{row}{blocksize} \times blocksize $
+	\\
 	\\	
 	initialise colmin to $ \dfrac{column}{blocksize} \times blocksize $
+	\\
 	\\		
-	initialise rowmax to rowmin + blocksize
+	initialise rowmax to (rowmin + blocksize)
 	\\		
-	initialise colmax to colmin + blocksize	
+	initialise colmax to (colmin + blocksize)	
 	\\
 	
 	\For{i from rowmin to rowmax }
@@ -201,13 +204,14 @@ Theoretical analysis will be done for each of the algorithm pseudo codes listed 
 
 \subsection{Algorithm 1: validMove}
  
-We will use comparisons as the basic operation in this algorithm. There are two main segments in this algorithm, the first simply checks if  the number to be inserted in the puzzle already exists in the row or column of the block we want to insert it into.  
+We will use comparisons as the basic operation in this algorithm. There are two main segments in this algorithm, the first simply checks if  the number to be inserted in the puzzle already exists in the row or column of the block we want to insert it into. 
 
 \todo{Best case complexity}\\
 \todo{Average case complexity}\\
 \todo{Worst case complexity}\\
  
 The second segment checks if the number to be inserted exists in the bigger sub-block of the puzzle as mentioned in the rules of sudoku. This segment has a complexity of 
+\\
 
 \todo{Find out whats blocksize and complete complexity}\\
 \todo{Best case complexity}\\
@@ -217,14 +221,18 @@ The second segment checks if the number to be inserted exists in the bigger sub-
 \subsection{Algorithm 2: openPosition}
 
 We will use comparisons as the basic operation in this algorithm. This algorithm simply loops through all positions in the sudoku puzzle searching for an empty block wherein we can fill a number according to the rules of sudoku. For a sudoku puzzle of size $n \times n$ the worse case complexity of this algorithm is $n^{2}$. This occurs when the open position is the last block searched in the puzzle.
+\\
+The best case complexity will occur when the open position is the first block searched in the puzzle. This complexity is constant.
+\\ 
 
-The best case complexity will occur when the open position is the first block searched in the puzzle. This complexity is constant. 
 
 \todo{Average case complexity}
 
 \subsection{Algorithm 3: Solve}
 
-\todo{finish the theoretical analysis of all algorithms}
+\todo{Best case complexity}\\
+\todo{Average case complexity}\\
+\todo{Worst case complexity}\\
 
 \section{Experimental Methodology}
 

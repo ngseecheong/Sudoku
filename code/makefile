@@ -12,8 +12,8 @@ clean:
 	rm -f test_output.txt
 
 test:
-	chmod u+x ./test.sh
-	./test.sh > test_output.txt
+	chmod u+x ./test2.sh
+	./test2.sh > test_output.txt
 	
 coverage:
 	gcovr -r .

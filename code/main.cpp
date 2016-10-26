@@ -1,8 +1,11 @@
 #include <iostream>
 #include "sudoku.h"
 #include <string.h>
-
+#include <chrono>
 using namespace std;
+
+using  ns = chrono::microseconds;
+using get_time = chrono::steady_clock;
 
 static int BLOCK_SIZE=3; //3x3 block size. This code is only for nxn
 
@@ -34,11 +37,16 @@ int main(int argc,char** argv){
 
   //gametest.print();
   //cout<<"====\n";
-  if(gametest.solve())
+  auto start = get_time::now();
+  bool solutionExists=gametest.solve();
+  auto end = get_time::now();
+  auto diff = end - start;
+  if(solutionExists)
     gametest.print();
   else
     cout<<"No solution\n";
 
+  cout<<chrono::duration_cast<ns>(diff).count();
   delete [] temp;
   return 0;
 }

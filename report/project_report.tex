@@ -24,11 +24,14 @@
 \maketitle
 
 \section{Introduction}
-Sudoku is a numerical based logic puzzle game. The idea is to fill in an $n\times n$ grid with numbers in a specific manner. The most commonly known grid usually consists of square blocks with 3 rows and 3 columns. These individual blocks are then arranged in a similar manner again, with 3 blocks along rows and 3 along columns, producing a $9 \times 9$ matrix. An example of this described matrix can be seen in Figure  \ref{fig:Blank_Sudoku_Board}. We need to fill each of the blocks with one of these numbers ${1,2,3,4,5,6,7,8,9}$. The rules for filling these blocks are as follows:
+Sudoku is a numerical based logic puzzle game. The idea is to fill in an $n\times n$ grid with numbers in a specific manner. The most commonly known grid usually consists of square blocks with 3 rows and 3 columns. These individual blocks are then arranged in a similar manner again, with 3 blocks along each row and 3 blocks along each column, producing a $9 \times 9$ matrix. An example of this described matrix can be seen in Figure  \ref{fig:Blank_Sudoku_Board}. Each individual block needs to be filled in  with one of these numbers: ${1,2,3,4,5,6,7,8,9}$.
+\\
+\\
+The rules for filling in the $9 \times 9$ sudoku grid are as follows:
 \begin{itemize}
-\item[•] Within each $3 \times 3 $ block we can only have single occurrence of each number.
-\item[•] Along each $9$ block row we can only have a single occurrence of each number.
-\item[•] Along each $9$ block column we can only have a single occurrence of each number.
+\item[•] Within each $3 \times 3 $ block we can only have a single occurrence of each number.
+\item[•] Along each row of $9$ blocks we can only have a single occurrence of each number.
+\item[•] Along each column of $9$ blocks we can only have a single occurrence of each number.
 \end{itemize}
 
 \noindent
@@ -52,22 +55,22 @@ An example of a Sudoku Puzzle completed using the rules stated above can be seen
 \noindent
 Solving sudoku puzzles are a fun exercise for many. However we would like to find a suitable algorithm which can be used to solve sudoku puzzles correctly as well as efficiently. There are various possible methods which can be used to solve sudoku puzzles. We will be focussing on the \emph{Backtracking Algorithm} in our experiments.
 \\
-\todo{Fill in facts}
 
 \newpage
 \section{Aims}
 
-We are going to use the backtracking algorithm to solve sudoku puzzles of size $n\times n$. We will attempt to solve these sudoku puzzles accurately and in as little time as possible. Once we have the algorithm working correctly we will perform both empirical as well as theoretical analysis on it. We aim to find the best, average and worst case complexities of the algorithm being used. These results will be obtained through both methods of analyses (empirical as well as theoretical) and correlations between the results will be obtained.
+We are going to use the backtracking algorithm to solve sudoku puzzles of size $9\times 9$. We will attempt to solve these sudoku puzzles accurately and in as little time as possible. Once we have the algorithm working correctly we will perform both theoretical as well as empirical analysis on it. We aim to find the best, average and worst case complexities of the algorithm being used. These results will be obtained through both methods of analyses (empirical as well as theoretical) and correlations between the results will be obtained.
+\\
 \\
 We will create a database of unsolved puzzles and another with their corresponding solutions. These lists will be used for all analysis done as well as ensuring that the solutions found to each of the puzzles are correct. 
 \\
-\todo{add some stuff}
 
 \section{Summary of Theory}
 
 \subsection{Backtracking Algorithm}
 
-In general backtracking algorithms are mainly used to solve NP-complete computational problems. Simply put, the backtracking algorithm starts with the selection of one possible move out of all available moves and will try solving the problem with the selected move. If the selected move allows us to find a correct final solution to the problem, the solution is given as an output (it is printed out). However, if the selected move does not lead to a correct final solution to the problem, we backtrack. The backtracking is done to the point where the move was selected and choose an alternative one at this point. This process is repeated until the correct solution to the problem is found. If none of the available moves work in finding the correct solution to the problem it is sufficient to say there is no solution to the problem.
+In general backtracking algorithms are mainly used to solve NP-complete computational problems. Simply put, the backtracking algorithm starts with the selection of one possible move out of all available moves and will try solving the problem with the selected move. If the selected move allows us to find a correct final solution to the problem, the solution is given as an output (it is printed out). However, if the selected move does not lead to a correct final solution to the problem, we backtrack. The backtracking is done to the point where the move was selected and we then choose an alternative move at this point. This process is repeated until the correct solution to the problem is found. If none of the available moves work in finding the correct solution to the problem it is sufficient to say there is no solution to the problem.
+\\
 \\
 Recursion is the most appropriate method to implement this type of algorithm.
 \\
@@ -77,7 +80,7 @@ Recursion is the most appropriate method to implement this type of algorithm.
 
 \begin{algorithm}[H]
 \caption{Check if  a Move is Valid}
-\begin{algorithmic}
+\begin{algorithmic}[1]
 
 \Function{validMove}{number , row, column}
 \\
@@ -136,7 +139,7 @@ Where:
 
 \begin{algorithm}[H]
 \caption{Check if a Position is Open}
-\begin{algorithmic}
+\begin{algorithmic}[1]
 \Function{openPosition}{}
 \\
 \textit{n} is the length of the square matrix representing the sudoku puzzle grid
@@ -164,7 +167,7 @@ Where:
 
 \begin{algorithm}[H]
 \caption{Backtracking}
-\begin{algorithmic}
+\begin{algorithmic}[1]
 \Function{solve}{}
 \\
 \textit{n} is the length of the square matrix representing the sudoku puzzle grid 
@@ -200,39 +203,62 @@ Where:
 
 \section{Theoretical Analysis }
 
-Theoretical analysis will be done for each of the algorithm pseudo codes listed above. However the first two algorithms are used in the Backtracking Algorithm (ie Solve calls validMove as well as openPosition) and thus the analysis of the Backtracking Algorithm will be done taking into account the analysis of Algorithms 1 and 2. We are able to do this as the aim of this experiment is to find the complexity of the Backtracking Algorithm being used to solve a sudoku puzzle.
+Theoretical analysis will be done for each of the algorithms listed above. Even though the first two algorithms are used in the Backtracking Algorithm (ie Solve calls validMove as well as openPosition) we will be calculating their complexities individually and thereafter include them in the complexity calculation of the Backtracking Algorithm. We are able to do this as the aim of this experiment is to find the complexity of the Backtracking Algorithm being used to solve a sudoku puzzle.
 
 \subsection{Algorithm 1: validMove}
  
-We will use comparisons as the basic operation in this algorithm. There are two main segments in this algorithm, the first simply checks if  the number to be inserted in the puzzle already exists in the row or column of the block we want to insert it into. 
-
-\todo{Best case complexity}\\
-\todo{Average case complexity}\\
-\todo{Worst case complexity}\\
- 
-The second segment checks if the number to be inserted exists in the bigger sub-block of the puzzle as mentioned in the rules of sudoku. This segment has a complexity of 
+The algorithm validMove is given the number to be inserted as well as the row and column where it will be inserted in the sudoku puzzle. It then runs through the puzzle being filled in and checks if the three rules listed above are not violated by the insertion of the particular number at that position.
+\\
+\\
+For the theoretical analysis of this algorithm we will use comparisons as the basic operation. There are two main segments in this algorithm, the first simply checks if  the number to be inserted in the puzzle already exists in the row or column of the block wherein we want to insert the number. The second segment checks if the number to be inserted exists in the sub-block of the sudoku puzzle as mentioned in the rules of sudoku.
+\\
 \\
 
-\todo{Find out whats blocksize and complete complexity}\\
-\todo{Best case complexity}\\
-\todo{Average case complexity}\\
-\todo{Worst case complexity}\\
+\subsubsection{Best Case}
+
+In the best case this algorithm would exit at line 11. This would happen when the number in position [r][1] is the same as the number to be inserted into row r. This means the time complexity of Algorithm 1 in the best case is $O(1)$.
+\\
+\todo{Average case complexity}
+\\
+
+\subsubsection{Worst case}
+
+In the worst case the algorithm would exit at line 27. This would happen when all the rules are valid and the number can be inserted into the position being checked. Therefore the time complexity of this algorithm in the worst case is $O(n)$ for a sudoku board of size $n$.
 
 \subsection{Algorithm 2: openPosition}
 
-We will use comparisons as the basic operation in this algorithm. This algorithm simply loops through all positions in the sudoku puzzle searching for an empty block wherein we can fill a number according to the rules of sudoku. For a sudoku puzzle of size $n \times n$ the worse case complexity of this algorithm is $n^{2}$. This occurs when the open position is the last block searched in the puzzle.
+The algorithm openPosition does not require any inputs. It then runs through the sudoku puzzle being filled in and searches for blocks (positions) which are empty in the puzzle being filled in. The empty blocks are represented by 0 in the puzzle.
 \\
-The best case complexity will occur when the open position is the first block searched in the puzzle. This complexity is constant.
-\\ 
+\\
+For the theoretical analysis of this algorithm we will use comparisons as the basic operation. This algorithm simply loops through all positions in the sudoku puzzle searching for an empty block wherein we can fill a number according to the rules of sudoku. 
 
+\subsubsection{Best Case}
 
+In the best case this algorithm would exit in line 11. The best case complexity will occur when the open position is the first block searched in the puzzle i.e. position [1][1] in the matrix. Therefore the complexity of this algorithm in the best case is $O(1)$.
+\\
 \todo{Average case complexity}
+\\
+
+\subsubsection{Worst Case}
+
+In the worst case the algorithm has two possibilities. The first is if the board only has one last open position i.e. [n][n] is open for a board of size $n$. The second is if there are no open positions left on the board. In both cases the complexity is $O(n^{2})$. Thus the time complexity of this algorithm in the worst case is $O(n^{2})$ for a sudoku board of size $n$.
 
 \subsection{Algorithm 3: Solve}
 
-\todo{Best case complexity}\\
-\todo{Average case complexity}\\
-\todo{Worst case complexity}\\
+The algorithm Solve does not take in any input. It is the backtracking algorithm we are using to solve sudoku puzzles. The algorithm initialises row and column and finds an open position on the board using the openPosition algorithm. It then tries to fill in a number using the validMove algorithm. If this does not work it backtracks and reattempts to solve the sudoku puzzle. This process is repeated until a final unique solution is found.
+
+\subsubsection{Best Case}
+
+In the best case this algorithm would exit in line 12. The best case complexity will occur when there are no open positions in the puzzle. This implies that the puzzle is already solved. For this we need to take into account the complexity of openPosition in this situation. The board in this situation would be a completely full. Therefore the complexity of this algorithm in the best case is $O(n^{2})$ for a sudoku board of size $n$.
+\\
+\todo{Average case complexity}
+\\
+\todo{Worst Case Complexity}
+\\
+
+\subsubsection{Worst Case}
+
+
 
 \section{Experimental Methodology}
 

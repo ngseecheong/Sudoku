@@ -74,6 +74,10 @@ In general backtracking algorithms are mainly used to solve NP-complete computat
 \\
 Recursion is the most appropriate method to implement this type of algorithm.
 \\
+\\
+Sudoku puzzles in general do not always have unique solutions. However most sudoku players consider soduko puzzles that do not have unique solutions to be invalid even though this is not one of the official rules. 
+\\
+\\
 \todo{add more stuff}
 
 \section{Pseudo code}
@@ -248,8 +252,7 @@ In the best case this algorithm would exit in line 12. The best case complexity 
 
 \subsubsection{Worst Case}
 
-\todo{Worst Case Complexity}
-\\
+In the worst case The algorithm would have to use the algorithms openPosition as well as validMove on every choice made. We also have to consider the recursion which takes place in line 16. Taking all this into account we see that the algorithm would have a worst case complexity of $O(n^{m})$ where m is the number of blank or empty blocks in the initial sudoku puzzle of size $n \times n$. The reason for this is the recursive nature of the backtracking algorithm. It also represents every possible permutation of the puzzle.
 
 
 \section{Experimental Methodology}

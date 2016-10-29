@@ -10,6 +10,28 @@ Sudoku::Sudoku(int** board,int blocksize){
 	this->length=blocksize*blocksize;
 }
 
+Sudoku::Sudoku(int num,int blocksize){
+    this->length=blocksize*blocksize;
+    this->blocksize=blocksize;
+    srand(time(NULL)); // use current time as seed for random generator
+    this->board=new int*[this->length];
+    for(int i=0;i<this->length;i++){
+      this->board[i]=new int[this->length];
+    }
+
+    int count=0;
+    while(count<=num){
+      int row = rand() % (this->length);
+      int col = rand() % (this->length);
+      int n = rand() % (this->length) + 1;
+
+      if(validMove(n,row,col)){
+	   board[row][col]=n;
+	   count++;
+      }
+    }
+  }
+
 /*
 * TODO: 
 * Destructor

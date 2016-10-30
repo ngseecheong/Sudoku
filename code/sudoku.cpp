@@ -36,7 +36,7 @@ Sudoku::Sudoku(int num,int blocksize){
   }
 
 /*
-* TODO: 
+* TODO:
 * Destructor
 */
 

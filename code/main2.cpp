@@ -12,9 +12,6 @@ static int BLOCK_SIZE=3; //3x3 block size. This code is only for nxn
 int main(int argc,char** argv){
 
   int length=BLOCK_SIZE*BLOCK_SIZE;
-  /*
-   * TODO: Set non fixed sizes
-  */
     
   int n = stoi(argv[1]);
   

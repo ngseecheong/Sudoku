@@ -38,6 +38,7 @@ sudoku2
 *.aux
 *.log
 *.synctex.gz
+*.toc
 
 #Gen files
 test_output.txt

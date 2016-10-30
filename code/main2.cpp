@@ -26,7 +26,7 @@ int main(int argc,char** argv){
   bool solutionExists=gametest.solve();
   auto end = get_time::now();
   auto diff = end - start;
-
+  //gametest.print();
   cout<<chrono::duration_cast<ns>(diff).count()<<"\n";
   return 0;
 }

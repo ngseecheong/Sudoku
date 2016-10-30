@@ -1,6 +1,6 @@
 #include<iostream>
 #include<time.h>
-#include<stdlib.h>
+#include<random>
 #include "sudoku.h"
 using namespace std;
 
@@ -13,17 +13,20 @@ Sudoku::Sudoku(int** board,int blocksize){
 Sudoku::Sudoku(int num,int blocksize){
     this->length=blocksize*blocksize;
     this->blocksize=blocksize;
-    srand(time(NULL)); // use current time as seed for random generator
     this->board=new int*[this->length];
     for(int i=0;i<this->length;i++){
       this->board[i]=new int[this->length];
     }
 
+    random_device rd;
+    default_random_engine re(rd());
+    uniform_int_distribution<int> number_range(0,8);
+    
     int count=0;
     while(count<=num){
-      int row = rand() % (this->length);
-      int col = rand() % (this->length);
-      int n = rand() % (this->length) + 1;
+      int row = number_range(re);
+      int col = number_range(re);
+      int n = number_range(re) + 1;
 
       if(validMove(n,row,col)){
 	   board[row][col]=n;

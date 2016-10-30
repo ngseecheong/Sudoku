@@ -1,4 +1,4 @@
-all: main_sudoku main2_sudoku
+all: main_sudoku
 
 main_sudoku:sudoku.cpp main.cpp
 	g++ -fprofile-arcs -ftest-coverage -fPIC -O0 main.cpp sudoku.cpp -o sudoku -std=c++11

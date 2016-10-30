@@ -8,6 +8,7 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{float}
+\usepackage{tabularx}
 \usepackage[margin=1in]{geometry}
 \author{800107 - Daniel Ng See Cheong\\
 		839521 - Uzair Moolla}
@@ -65,7 +66,7 @@ Solving sudoku puzzles are a fun exercise for many. However we would like to fin
 We are going to use the backtracking algorithm to solve sudoku puzzles of size $9\times 9$. We will attempt to solve these sudoku puzzles accurately and in as little time as possible. Once we have the algorithm working correctly we will perform both theoretical as well as empirical analysis on it. We aim to find the best and worst case complexities of the algorithm being used. These results will be obtained through both methods of analyses (empirical as well as theoretical) and correlations between the results will be obtained.
 \\
 \\
-We will create a database of unsolved puzzles using a random puzzle generator. These generated puzzles will either have a unique solution, multiple solutions or no solution. These puzzles will be used for all analysis done. 
+We will write code that will randomly generate unsolved puzzles using a random puzzle generation algorithm. These generated puzzles will either have a unique solution, multiple solutions or no solution. These puzzles will be used for all analysis done. 
 \\
 
 \section{Summary of Theory}
@@ -208,7 +209,7 @@ Theoretical analysis will be done for each of the algorithms listed above. Even 
 
 \subsection{Algorithm 1: validMove}
  
-The algorithm validMove is given the number to be inserted as well as the row and column where it will be inserted in the sudoku puzzle. It then runs through the puzzle being filled in and checks if the three rules listed above are not violated by the insertion of the particular number at that position.
+The algorithm validMove is given the number to be inserted as well as the row and column where it will be inserted in the sudoku puzzle. It then runs through the puzzle being filled in and checks if the three rules of sudoku listed above are not violated by the insertion of the particular number at that position.
 \\
 \\
 For the theoretical analysis of this algorithm we will use comparisons as the basic operation. There are two main segments in this algorithm, the first simply checks if  the number to be inserted in the puzzle already exists in the row or column of the block wherein we want to insert the number. The second segment checks if the number to be inserted exists in the sub-block of the sudoku puzzle as mentioned in the rules of sudoku.
@@ -241,7 +242,7 @@ In the worst case the algorithm has two possibilities. The first is if the board
 \newpage
 \subsection{Algorithm 3: Solve}
 
-The algorithm Solve does not take in any input. It is the backtracking algorithm we are using to solve sudoku puzzles. The algorithm initialises row and column and finds an open position on the board using the openPosition algorithm. It then tries to fill in a number using the validMove algorithm. If this does not work it backtracks and reattempts to solve the sudoku puzzle. This process is repeated until a final unique solution is found.
+The algorithm Solve does not take in any input. It is the backtracking algorithm we are using to solve sudoku puzzles. The algorithm initialises row and column and finds an open position on the board using the openPosition algorithm. It then tries to fill in a number using the validMove algorithm. If this does not work it backtracks and reattempts to solve the sudoku puzzle. This process is repeated until a final unique solution is found. However, if that is not the case we then conclude that there is no solution to the puzzle.
 
 \subsubsection{Best Case}
 
@@ -272,7 +273,7 @@ The reason for testing our algorithm in this mannor is that we can determine $m$
 
 \section{Interpretation of results}
 
-In Figure \ref{fig:graph1} each plotted line represents a single test. Each test was performed as explained in our Experimental Methodology. From the results we see that for $f$ between 1 and 10 the sudoku puzzle is solved in a relatively short amount of time. A possible reason for this is that as the puzzles are randomly generated there may be multiple solutions to each puzzle.
+In Figure \ref{fig:graph1} each plotted line represents a single test. Each test was performed as explained in our Experimental Methodology. From the results we see that for $f$ between $1$ and $10$ the sudoku puzzle is solved in a relatively short amount of time. A possible reason for this is that as the puzzles are randomly generated there may be multiple solutions to each puzzle.
 \\
 \\
 Also in Figure \ref{fig:graph1} We see that for $f$ between 10 and 30 solving the sudoku puzzle takes the greatest amount of time. The reason for this is that, as some mathematicians theorise, a sudoku puzzle has a unique solution when a certain number of blocks have been filled in. This would imply that at these points the algorithm searches for the unique solution backtracking the most. This would happen often as the backtracking would occur regardless of whether a unique solution is found or not. This would be the worst case time complexity of our algorithm. 
@@ -285,7 +286,31 @@ The best case complexity occurs when $f$ is greater than 45. The reason for this
 
 We set out to determine the time complexity of the backtracking algorithm we designed to solve a sudoku puzzle of size $ 9 \times 9$. The algorithm does find solutions to every solvable sudoku puzzle given to it as an input. We have also been able to determine the best as well as the worst case complexities both theoretically and empirically. The complexities we have obtained through empirical analysis do align with those obtained in theoretical analysis. All in all this research has been a success as we have been successful in completing the aims as set out when we began this project.
 
+\section{Statement of Effort}
+
+All work was split as follows:
+\\
+
+\begin{tabularx}{\linewidth}{| X | X |}
+\hline
+\textbf{Student} & \textbf{Amount of work done}\\
+\hline
+Daniel & 50\% \\
+\hline
+Uzair & 50\% \\
+\hline
+\end{tabularx}
+
 \section{References}
 
+\begin{enumerate}
+\item http://algorithms.tutorialhorizon.com/introduction-to-backtracking-programming/
+\item https://en.wikipedia.org/wiki/Backtracking
+\item https://www.quora.com/What-is-backtracking-in-algorithms
+\item www.websudoku.com/
+\item https://en.wikipedia.org/wiki/Sudoku
+\item https://www.sudokuoftheday.com/howtostart/
+\item https://www.sharelatex.com/
+\end{enumerate}
 
 \end{document}

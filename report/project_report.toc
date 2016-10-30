@@ -17,4 +17,5 @@
 \contentsline {section}{\numberline {7}Presentation of results}{8}
 \contentsline {section}{\numberline {8}Interpretation of results}{8}
 \contentsline {section}{\numberline {9}Conclusion}{9}
-\contentsline {section}{\numberline {10}References}{9}
+\contentsline {section}{\numberline {10}Statement of Effort}{9}
+\contentsline {section}{\numberline {11}References}{9}

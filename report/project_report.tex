@@ -24,6 +24,7 @@
 \maketitle
 
 \section{Introduction}
+
 Sudoku is a numerical based logic puzzle game. The idea is to fill in an $n\times n$ grid with numbers in a specific manner. The most commonly known grid usually consists of square blocks with 3 rows and 3 columns. These individual blocks are then arranged in a similar manner again, with 3 blocks along each row and 3 blocks along each column, producing a $9 \times 9$ matrix. An example of this described matrix can be seen in Figure  \ref{fig:Blank_Sudoku_Board}. Each individual block needs to be filled in  with one of these numbers: ${1,2,3,4,5,6,7,8,9}$.
 \\
 \\
@@ -71,14 +72,8 @@ We will create a database of unsolved puzzles using a random puzzle generator. T
 
 In general backtracking algorithms are mainly used to solve NP-complete computational problems. Simply put, the backtracking algorithm starts with the selection of one possible move out of all available moves and will try solving the problem with the selected move. If the selected move allows us to find a correct final solution to the problem, the solution is given as an output (it is printed out). However, if the selected move does not lead to a correct final solution to the problem, we backtrack. The backtracking is done to the point where the move was selected and we then choose an alternative move at this point. This process is repeated until the correct solution to the problem is found. If none of the available moves work in finding the correct solution to the problem it is sufficient to say there is no solution to the problem.
 \\
-\\
 Recursion is the most appropriate method to implement this type of algorithm.
-\\
-\\
-Sudoku puzzles in general do not always have unique solutions. However most sudoku players consider soduko puzzles that do not have unique solutions to be invalid even though this is not one of the official rules. 
-\\
-\\
-\todo{add more stuff}
+
 
 \section{Pseudo code}
 
@@ -257,7 +252,9 @@ In the worst case The algorithm would have to use the algorithms openPosition as
 
 \section{Experimental Methodology}
 
-\todo{Define methods of experimentation}
+For our experiments we have written code that will generate a sudoku puzzle of a given size $n$ and fill in $f$ random positions within the puzzle with random numbers between $1$ and $n$. The number of positions filled in ($f$) can be changed as it is taken as an input in the generator algorithm. We will then run our backtracking algorithm \emph{Solve} on this generated puzzle and the output will either be the solution to the puzzle or, if none exists, then the algorithm will print out "No Solution". This process will be repeated 1000 times for each $f$ by the random puzzle generator. These 1000 iterations will each be timed and then averaged to produce a final time for solving a puzzle where the number of filled in blocks is $f$. The variable $f$ will always be between $1$ and $81$ in our experiments.
+
+The reason for testing our algorithm in this mannor is that we can determine $m$, the number of empty or blank positions in the given puzzle at every iteration.  
 
 \section{Presentation of results}
 

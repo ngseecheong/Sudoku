@@ -12,7 +12,7 @@
 \author{800107 - Daniel Ng See Cheong\\
 		839521 - Uzair Moolla}
 \title{
-	AAA Project\\
+	AAA Project Report\\
 	\large Solving Sudoku using the backtracking algorithm
 }
 
@@ -22,7 +22,9 @@
 
 \begin{document}
 \maketitle
-
+\newpage
+\tableofcontents
+\newpage
 \section{Introduction}
 
 Sudoku is a numerical based logic puzzle game. The idea is to fill in an $n\times n$ grid with numbers in a specific manner. The most commonly known grid usually consists of square blocks with 3 rows and 3 columns. These individual blocks are then arranged in a similar manner again, with 3 blocks along each row and 3 blocks along each column, producing a $9 \times 9$ matrix. An example of this described matrix can be seen in Figure  \ref{fig:Blank_Sudoku_Board}. Each individual block needs to be filled in  with one of these numbers: ${1,2,3,4,5,6,7,8,9}$.
@@ -60,7 +62,7 @@ Solving sudoku puzzles are a fun exercise for many. However we would like to fin
 \newpage
 \section{Aims}
 
-We are going to use the backtracking algorithm to solve sudoku puzzles of size $9\times 9$. We will attempt to solve these sudoku puzzles accurately and in as little time as possible. Once we have the algorithm working correctly we will perform both theoretical as well as empirical analysis on it. We aim to find the best, average and worst case complexities of the algorithm being used. These results will be obtained through both methods of analyses (empirical as well as theoretical) and correlations between the results will be obtained.
+We are going to use the backtracking algorithm to solve sudoku puzzles of size $9\times 9$. We will attempt to solve these sudoku puzzles accurately and in as little time as possible. Once we have the algorithm working correctly we will perform both theoretical as well as empirical analysis on it. We aim to find the best and worst case complexities of the algorithm being used. These results will be obtained through both methods of analyses (empirical as well as theoretical) and correlations between the results will be obtained.
 \\
 \\
 We will create a database of unsolved puzzles using a random puzzle generator. These generated puzzles will either have a unique solution, multiple solutions or no solution. These puzzles will be used for all analysis done. 
@@ -236,6 +238,7 @@ In the best case this algorithm would exit in line 11. The best case complexity 
 
 In the worst case the algorithm has two possibilities. The first is if the board only has one last open position i.e. [n][n] is open for a board of size $n$. The second is if there are no open positions left on the board. In both cases the complexity is $O(n^{2})$. Thus the time complexity of this algorithm in the worst case is $O(n^{2})$ for a sudoku board of size $n$.
 
+\newpage
 \subsection{Algorithm 3: Solve}
 
 The algorithm Solve does not take in any input. It is the backtracking algorithm we are using to solve sudoku puzzles. The algorithm initialises row and column and finds an open position on the board using the openPosition algorithm. It then tries to fill in a number using the validMove algorithm. If this does not work it backtracks and reattempts to solve the sudoku puzzle. This process is repeated until a final unique solution is found.
@@ -258,16 +261,31 @@ The reason for testing our algorithm in this mannor is that we can determine $m$
 
 \section{Presentation of results}
 
-\todo{Show results of empirical analysis}
+%-------------------------------------------------------%
+\begin{figure}[H]
+\centering
+\includegraphics[width = \textwidth]{graph1}
+\caption{Results of empirical analysis}
+\label{fig:graph1}
+\end{figure}
+%------------------------------------------------------%
 
 \section{Interpretation of results}
 
-\todo{interpret results from empirical analysis}
+In Figure \ref{fig:graph1} each plotted line represents a single test. Each test was performed as explained in our Experimental Methodology. From the results we see that for $f$ between 1 and 10 the sudoku puzzle is solved in a relatively short amount of time. A possible reason for this is that as the puzzles are randomly generated there may be multiple solutions to each puzzle.
+\\
+\\
+Also in Figure \ref{fig:graph1} We see that for $f$ between 10 and 30 solving the sudoku puzzle takes the greatest amount of time. The reason for this is that, as some mathematicians theorise, a sudoku puzzle has a unique solution when a certain number of blocks have been filled in. This would imply that at these points the algorithm searches for the unique solution backtracking the most. This would happen often as the backtracking would occur regardless of whether a unique solution is found or not. This would be the worst case time complexity of our algorithm. 
+\\
+\\
+The best case complexity occurs when $f$ is greater than 45. The reason for this is that the number of open positions start decreasing at this point and thus the algorithm has much less work to do.    
 
+\newpage
 \section{Conclusion}
+
+We set out to determine the time complexity of the backtracking algorithm we designed to solve a sudoku puzzle of size $ 9 \times 9$. The algorithm does find solutions to every solvable sudoku puzzle given to it as an input. We have also been able to determine the best as well as the worst case complexities both theoretically and empirically. The complexities we have obtained through empirical analysis do align with those obtained in theoretical analysis. All in all this research has been a success as we have been successful in completing the aims as set out when we began this project.
 
 \section{References}
 
-\section{Acknowledgements}
 
 \end{document}

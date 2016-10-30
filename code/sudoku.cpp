@@ -4,12 +4,18 @@
 #include "sudoku.h"
 using namespace std;
 
+/*
+* Provide a board
+*/
 Sudoku::Sudoku(int** board,int blocksize){
 	this->board=board;
 	this->blocksize=blocksize;
 	this->length=blocksize*blocksize;
 }
 
+/*
+* Randomly generated board
+*/
 Sudoku::Sudoku(int num,int blocksize){
     this->length=blocksize*blocksize;
     this->blocksize=blocksize;
@@ -34,11 +40,6 @@ Sudoku::Sudoku(int num,int blocksize){
       }
     }
   }
-
-/*
-* TODO:
-* Destructor
-*/
 
 void Sudoku::print(){
 	for(int i=0;i<length;i++){
@@ -85,9 +86,7 @@ bool Sudoku::validMove(int num,int row,int col){
 	return true;
 }
 
-//Start row and col
 bool Sudoku::solve(){
-	//this->print();
 	int row,col;
 	int* temp=openPosition();
 	if(temp!=NULL){
@@ -97,7 +96,6 @@ bool Sudoku::solve(){
 		return true;
 	}
 
-	//cout<<row<<" "<<col<<"\n";
 	for(int i=1;i<=length;i++){
 		if(validMove(i,row,col)){
 			board[row][col]=i;

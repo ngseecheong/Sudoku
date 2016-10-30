@@ -22,3 +22,6 @@ do
 	fi
     done
 done
+
+#Test sudoku2 should only fill 1 position
+./sudoku2 80

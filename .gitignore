@@ -4,6 +4,7 @@
 *.o
 *.obj
 sudoku
+sudoku2
 
 #Code coverage
 *.gcno

@@ -51,6 +51,7 @@ test_coverage:
     - echo Acquire::http::Proxy http://"$HTTP_PROXY"'/;' > /etc/apt/apt.conf
     - echo Acquire::https::Proxy http://"$HTTP_PROXY"'/;' >> /etc/apt/apt.conf
     - echo Acquire::ftp::Proxy http://"$HTTP_PROXY"'/;' >> /etc/apt/apt.conf
+    - cat /etc/apt/apt.conf
     - apt-get update
     - apt-get install python-pip -y
     - pip install gcovr

@@ -48,9 +48,9 @@ test_coverage:
   image: gcc
   stage: coverage
   script:
-    - echo Acquire::http::Proxy http://"$HTTP_PROXY"'/;' > /etc/apt/apt.conf
-    - echo Acquire::https::Proxy http://"$HTTP_PROXY"'/;' >> /etc/apt/apt.conf
-    - echo Acquire::ftp::Proxy http://"$HTTP_PROXY"'/;' >> /etc/apt/apt.conf
+    - echo Acquire::http::Proxy http://\"$HTTP_PROXY\"'/;' > /etc/apt/apt.conf
+    - echo Acquire::https::Proxy http://\"$HTTP_PROXY\"'/;' >> /etc/apt/apt.conf
+    - echo Acquire::ftp::Proxy http://\"$HTTP_PROXY\"'/;' >> /etc/apt/apt.conf
     - cat /etc/apt/apt.conf
     - apt-get update
     - apt-get install python-pip -y
